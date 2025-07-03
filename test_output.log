@@ -1,0 +1,28 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.10.11, pytest-8.4.1, pluggy-1.6.0 -- /Users/fmenol/Documents/GitHub/icd9/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/fmenol/Documents/GitHub/icd9
+plugins: anyio-4.9.0
+collecting ... collected 3 items
+
+tests/test_icd9_llm_tree_search.py::test_tree_search_selects_first_child PASSED [ 33%]
+tests/test_icd9_llm_tree_search.py::test_tree_search_with_keyword PASSED [ 66%]
+tests/test_icd9_llm_tree_search.py::test_tree_search_tuberculosis FAILED [100%]
+
+=================================== FAILURES ===================================
+________________________ test_tree_search_tuberculosis _________________________
+
+    def test_tree_search_tuberculosis():
+        searcher = TuberculosisLLMTreeSearch()
+        note = "Patient with tuberculous fibrosis of lung, tubercle bacilli found in sputum by microscopy"
+        codes = searcher.run_tree_search(note, max_depth=7)
+>       assert '011.43' in codes
+E       AssertionError: assert '011.43' in ['011.4', '010-018', '011', '001-139']
+
+tests/test_icd9_llm_tree_search.py:80: AssertionError
+----------------------------- Captured stderr call -----------------------------
+Tree Search Depth:   0%|          | 0/7 [00:00<?, ?level/s]Tree Search Depth: 100%|██████████| 7/7 [00:00<00:00, 11843.54level/s]
+=========================== short test summary info ============================
+FAILED tests/test_icd9_llm_tree_search.py::test_tree_search_tuberculosis - As...
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+========================= 1 failed, 2 passed in 0.39s ==========================

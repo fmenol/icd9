@@ -96,7 +96,7 @@ tree.find('001').description
 tree.children
 
 # search for '001.0' in root's first child
-tree.children[0].search('001.0')
+tree.children[0].search('001.0')`
 ```
 
 `node.parent`
