@@ -1,0 +1,51 @@
+{
+  "keyword_extractor": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Extract medical keywords from clinical notes",
+      "fields": [
+        {
+          "prefix": "Clinical Note:",
+          "description": "Clinical note to analyze"
+        },
+        {
+          "prefix": "Keywords:",
+          "description": "Comma-separated list of medical keywords"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "code_ranker": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Rank ICD-9 codes based on clinical note relevance",
+      "fields": [
+        {
+          "prefix": "Clinical Note:",
+          "description": "Clinical note describing patient condition"
+        },
+        {
+          "prefix": "Candidate Codes:",
+          "description": "List of candidate ICD-9 codes with descriptions"
+        },
+        {
+          "prefix": "Best Code:",
+          "description": "The single most relevant ICD-9 code"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.10",
+      "dspy": "2.6.27",
+      "cloudpickle": "3.1"
+    }
+  }
+}

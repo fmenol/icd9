@@ -1,0 +1,121 @@
+{
+  "keyword_extractor": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "clinical_note": "Diagnosis: Other specified deformity. Patient counseled on condition.",
+        "candidate_codes": [
+          "569.0",
+          "141.3",
+          "V40.2",
+          "V65.2",
+          "738.19"
+        ],
+        "best_code": "738.19"
+      },
+      {
+        "clinical_note": "Patient presents with burns, fire. Assessment and plan discussed.",
+        "candidate_codes": [
+          "E988.1",
+          "228.09",
+          "V67.01",
+          "074.8",
+          "537.83"
+        ],
+        "best_code": "E988.1"
+      },
+      {
+        "clinical_note": "History and physical examination reveals bucket handle tear of lateral meniscus.",
+        "candidate_codes": [
+          "E904.0",
+          "647.8",
+          "781.94",
+          "017.1",
+          "717.41"
+        ],
+        "best_code": "717.41"
+      },
+      {
+        "clinical_note": "Patient diagnosed with unrepairable overhanging of dental restorative materials after thorough evaluation.",
+        "candidate_codes": [
+          "046.3",
+          "478.22",
+          "160.3",
+          "525.62",
+          "V10.02"
+        ],
+        "best_code": "525.62"
+      }
+    ],
+    "signature": {
+      "instructions": "Extract medical keywords from clinical notes",
+      "fields": [
+        {
+          "prefix": "Clinical Note:",
+          "description": "Clinical note to analyze"
+        },
+        {
+          "prefix": "Keywords:",
+          "description": "Comma-separated list of medical keywords"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "code_ranker": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "clinical_note": "Diagnosis: Iodine hypothyroidism. Patient counseled on condition.",
+        "candidate_codes": "344.42: Affecting nondominant side\n694.2: Juvenile dermatitis herpetiformis\n342.1: Spastic hemiplegia\nV07.51: Prophylactic use of selective estrogen receptor modulators (SERMs)\n244.2: Iodine hypothyroidism",
+        "best_code": "244.2"
+      },
+      {
+        "augmented": true,
+        "clinical_note": "Patient diagnosed with pregnancy with history of trophoblastic disease after thorough evaluation.",
+        "candidate_codes": "618.82: Incompetence or weakening of rectovaginal tissue\n800.3: Closed with other and unspecified intracranial hemorrhage\nV23.1: Pregnancy with history of trophoblastic disease\n359.29: Other specified myotonic disorder\n375.12: Other lacrimal cysts and cystic degeneration",
+        "best_code": "V23.1"
+      },
+      {
+        "augmented": true,
+        "clinical_note": "Diagnosis: Insufficient interocclusal distance of teeth (ridge). Patient counseled on condition.",
+        "candidate_codes": "127.4: Enterobiasis\n524.36: Insufficient interocclusal distance of teeth (ridge)\n862.0: Diaphragm, without mention of open wound into cavity\nV58.77: Aftercare following surgery of the skin and subcutaneous tissue, NEC\nE984: Submersion [drowning], undetermined whether accidentally or purposely inflicted",
+        "best_code": "524.36"
+      },
+      {
+        "augmented": true,
+        "clinical_note": "Patient presents with prolonged stay in weightless environment. Assessment and plan discussed.",
+        "candidate_codes": "724.5: Backache, unspecified\n962.2: Ovarian hormones and synthetic substitutes\n338.11: Acute pain due to trauma\nE945.1: Smooth muscle relaxants\nE928.0: Prolonged stay in weightless environment",
+        "best_code": "E928.0"
+      }
+    ],
+    "signature": {
+      "instructions": "Rank ICD-9 codes based on clinical note relevance",
+      "fields": [
+        {
+          "prefix": "Clinical Note:",
+          "description": "Clinical note describing patient condition"
+        },
+        {
+          "prefix": "Candidate Codes:",
+          "description": "List of candidate ICD-9 codes with descriptions"
+        },
+        {
+          "prefix": "Best Code:",
+          "description": "The single most relevant ICD-9 code"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.10",
+      "dspy": "2.6.27",
+      "cloudpickle": "3.1"
+    }
+  }
+}

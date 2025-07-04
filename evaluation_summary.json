@@ -1,0 +1,11 @@
+{
+  "total_cases": 100,
+  "basic_accuracy": 50.0,
+  "dspy_accuracy": 49.0,
+  "accuracy_improvement": -1.0,
+  "basic_avg_time": 0.9035000000000001,
+  "dspy_avg_time": 0.9014999999999997,
+  "time_difference": -0.002000000000000335,
+  "basic_correct": 50,
+  "dspy_correct": 49
+}
